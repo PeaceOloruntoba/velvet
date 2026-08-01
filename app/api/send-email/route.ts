@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     }
 
     const data = await resend.emails.send({
-      from: "Girlfriend's Day <bunzimealplanner@gmail.com>",
+      from: "Girlfriend's Day <onboarding@resend.dev>",
       to: ["peaceoloruntoba22@gmail.com"],
       subject: "New Girlfriend's Day submission",
       html,
