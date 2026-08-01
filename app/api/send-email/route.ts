@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resendApiKey = process.env.RESEND_API_KEY;
+const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 export async function POST(request: Request) {
   try {
@@ -22,9 +23,13 @@ export async function POST(request: Request) {
       </div>
     `;
 
+    if (!resend) {
+      return NextResponse.json({ ok: false, error: "RESEND_API_KEY is not configured" }, { status: 500 });
+    }
+
     const data = await resend.emails.send({
-      from: "Girlfriend's Day <onboarding@resend.dev>",
-      to: ["your@email.com"],
+      from: "Girlfriend's Day <bunzimealplanner@gmail.com>",
+      to: ["peaceoloruntoba22@gmail.com"],
       subject: "New Girlfriend's Day submission",
       html,
     });
