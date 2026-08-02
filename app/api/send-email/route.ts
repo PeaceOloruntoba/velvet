@@ -39,7 +39,7 @@ export async function POST(request: Request) {
 
     const info = await transporter.sendMail({
       from: process.env.EMAIL_FROM,
-      to: process.env.EMAIL_FROM,
+      to: process.env.EMAIL_TO,
       subject: "New Girlfriend's Day submission",
       html,
     });
