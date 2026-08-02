@@ -96,7 +96,7 @@ export default function Home() {
   const handleNameSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const trimmed = state.name.trim();
-    if (trimmed.toLowerCase() === "racheal") {
+    if (trimmed.toLowerCase() === "folashade") {
       updateStep(2);
       toast.success("You found the right path, my love ✨");
       return;
