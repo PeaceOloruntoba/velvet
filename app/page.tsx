@@ -210,7 +210,7 @@ export default function Home() {
   };
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.28),_transparent_45%),linear-gradient(135deg,_#f472b6_0%,_#fb7185_35%,_#f43f5e_100%)] px-4 py-8 text-slate-900 sm:px-6 lg:px-8">
+    <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.28),_transparent_45%),linear-gradient(135deg,_#f472b6_0%,_#fb7185_35%,_#f43f5e_100%)] px-3 py-4 text-slate-900 sm:px-6 sm:py-8 lg:px-8">
       <div className="absolute inset-0 overflow-hidden">
         {heartParticles.map((particle) => (
           <motion.span
@@ -229,18 +229,18 @@ export default function Home() {
         ))}
       </div>
 
-      <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] max-w-5xl flex-col rounded-[2rem] border border-white/30 bg-white/20 p-4 shadow-[0_25px_80px_rgba(190,24,93,0.25)] backdrop-blur-xl sm:p-8">
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-4 rounded-full border border-white/40 bg-white/30 px-4 py-3 text-sm font-medium text-slate-800 shadow-sm backdrop-blur-md">
+      <div className="relative mx-auto flex min-h-[calc(100vh-2rem)] w-full max-w-5xl flex-col rounded-[1.5rem] border border-white/30 bg-white/20 p-3 shadow-[0_25px_80px_rgba(190,24,93,0.25)] backdrop-blur-xl sm:min-h-[calc(100vh-4rem)] sm:rounded-[2rem] sm:p-8">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-[1.2rem] border border-white/40 bg-white/30 px-3 py-3 text-sm font-medium text-slate-800 shadow-sm backdrop-blur-md sm:mb-6 sm:rounded-full sm:px-4">
           <div>
             <p className="text-xs uppercase tracking-[0.35em] text-rose-700/80">Girlfriend&apos;s Day</p>
-            <p className="text-lg font-semibold">A love letter for my favorite girl</p>
+            <p className="text-base font-semibold sm:text-lg">A love letter for my favorite girl</p>
           </div>
           <div className="rounded-full bg-rose-500/20 px-3 py-1 text-rose-700">
             Step {state.step} of 10
           </div>
         </div>
 
-        <div className="mb-6 h-2 overflow-hidden rounded-full bg-white/35">
+        <div className="mb-4 h-2 overflow-hidden rounded-full bg-white/35 sm:mb-6">
           <motion.div
             className="h-full rounded-full bg-gradient-to-r from-pink-500 via-rose-400 to-fuchsia-500"
             animate={{ width: `${progressValue}%` }}
@@ -261,15 +261,15 @@ export default function Home() {
               <div className="flex h-full flex-col justify-center gap-6 rounded-[1.5rem] border border-white/30 bg-white/20 p-6 shadow-lg backdrop-blur-md sm:p-8">
                 <div className="space-y-3">
                   <p className="text-sm uppercase tracking-[0.35em] text-rose-700/80">Step 1</p>
-                  <h1 className="text-3xl font-semibold text-slate-900 sm:text-4xl">What is your name, my love?</h1>
-                  <p className="max-w-2xl text-lg text-slate-700">Tell me who you are so I can welcome you into my heart.</p>
+                  <h1 className="text-2xl font-semibold text-slate-900 sm:text-4xl">What is your name, my love?</h1>
+                  <p className="max-w-2xl text-base text-slate-700 sm:text-lg">Tell me who you are so I can welcome you into my heart.</p>
                 </div>
-                <form onSubmit={handleNameSubmit} className="flex flex-col gap-4 sm:flex-row">
+                <form onSubmit={handleNameSubmit} className="flex flex-col gap-3 sm:flex-row sm:gap-4">
                   <input
                     value={state.name}
                     onChange={(event) => setState((prev) => ({ ...prev, name: event.target.value }))}
                     placeholder="Type your name here"
-                    className="flex-1 rounded-full border border-white/40 bg-white/70 px-4 py-3 text-lg outline-none ring-0 placeholder:text-slate-500"
+                    className="flex-1 rounded-full border border-white/40 bg-white/70 px-4 py-3 text-base outline-none ring-0 placeholder:text-slate-500 sm:text-lg"
                   />
                   <button className="rounded-full bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-3 font-semibold text-white shadow-lg transition hover:scale-[1.02]">
                     Submit
@@ -282,8 +282,8 @@ export default function Home() {
               <div className="flex h-full flex-col justify-center gap-6 rounded-[1.5rem] border border-white/30 bg-white/20 p-6 shadow-lg backdrop-blur-md sm:p-8">
                 <div className="space-y-3">
                   <p className="text-sm uppercase tracking-[0.35em] text-rose-700/80">Step 2</p>
-                  <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">Checking heart rate synchronization...</h2>
-                  <p className="text-lg text-slate-700">Drag the meter to 100% to unlock the sweetest connection.</p>
+                  <h2 className="text-2xl font-semibold text-slate-900 sm:text-4xl">Checking heart rate synchronization...</h2>
+                  <p className="text-base text-slate-700 sm:text-lg">Drag the meter to 100% to unlock the sweetest connection.</p>
                 </div>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between text-sm text-slate-700">
@@ -302,7 +302,7 @@ export default function Home() {
                     <motion.div
                       animate={{ scale: [1, 1.08, 1] }}
                       transition={{ duration: 1.2, repeat: Infinity }}
-                      className="text-5xl"
+                      className="text-4xl sm:text-5xl"
                     >
                       💗
                     </motion.div>
@@ -318,7 +318,7 @@ export default function Home() {
               <div className="flex h-full flex-col justify-center gap-6 rounded-[1.5rem] border border-white/30 bg-white/20 p-6 shadow-lg backdrop-blur-md sm:p-8">
                 <div className="space-y-3">
                   <p className="text-sm uppercase tracking-[0.35em] text-rose-700/80">Step 3</p>
-                  <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">Do you remember who fell in love first?</h2>
+                  <h2 className="text-2xl font-semibold text-slate-900 sm:text-4xl">Do you remember who fell in love first?</h2>
                 </div>
                 <div className="grid gap-3 sm:grid-cols-3">
                   {[
@@ -329,7 +329,7 @@ export default function Home() {
                     <button
                       key={answer}
                       onClick={() => handleQuizAnswer(answer)}
-                      className="rounded-2xl border border-white/40 bg-white/70 px-4 py-4 text-left text-base font-medium text-slate-800 shadow-sm transition hover:scale-[1.01]"
+                      className="rounded-2xl border border-white/40 bg-white/70 px-4 py-4 text-left text-sm font-medium text-slate-800 shadow-sm transition hover:scale-[1.01] sm:text-base"
                     >
                       {answer}
                     </button>
@@ -342,7 +342,7 @@ export default function Home() {
               <div className="flex h-full flex-col justify-center gap-6 rounded-[1.5rem] border border-white/30 bg-white/20 p-6 shadow-lg backdrop-blur-md sm:p-8">
                 <div className="space-y-3">
                   <p className="text-sm uppercase tracking-[0.35em] text-rose-700/80">Step 4</p>
-                  <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">Be honest... Do you love me more than yourself?</h2>
+                  <h2 className="text-2xl font-semibold text-slate-900 sm:text-4xl">Be honest... Do you love me more than yourself?</h2>
                 </div>
                 <div className="relative flex min-h-[180px] flex-col justify-center gap-4 sm:flex-row">
                   <motion.button
@@ -358,7 +358,7 @@ export default function Home() {
                     onMouseEnter={() => setNoButtonOffset({ x: Math.random() * 140 - 70, y: Math.random() * 90 - 45 })}
                     onTouchStart={() => setNoButtonOffset({ x: Math.random() * 140 - 70, y: Math.random() * 90 - 45 })}
                     onClick={() => handleTruthAnswer("no")}
-                    className="rounded-full border border-rose-300 bg-white/80 px-8 py-4 text-lg font-semibold text-rose-700 shadow-md"
+                    className="rounded-full border border-rose-300 bg-white/80 px-7 py-3 text-base font-semibold text-rose-700 shadow-md sm:px-8 sm:py-4 sm:text-lg"
                   >
                     No 😜
                   </motion.button>
@@ -370,7 +370,7 @@ export default function Home() {
               <div className="flex h-full flex-col justify-center gap-6 rounded-[1.5rem] border border-white/30 bg-white/20 p-6 shadow-lg backdrop-blur-md sm:p-8">
                 <div className="space-y-3">
                   <p className="text-sm uppercase tracking-[0.35em] text-rose-700/80">Step 5</p>
-                  <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">Pick 3 coupons to claim for this week:</h2>
+                  <h2 className="text-2xl font-semibold text-slate-900 sm:text-4xl">Pick 3 coupons to claim for this week:</h2>
                 </div>
                 <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
                   {couponOptions.map((coupon) => {
@@ -379,7 +379,7 @@ export default function Home() {
                       <button
                         key={coupon}
                         onClick={() => toggleCoupon(coupon)}
-                        className={`rounded-2xl border px-4 py-4 text-left text-base font-medium transition ${selected ? "border-rose-400 bg-rose-500/20 text-rose-800 shadow-md" : "border-white/40 bg-white/70 text-slate-800"}`}
+                        className={`rounded-2xl border px-4 py-4 text-left text-sm font-medium transition sm:text-base ${selected ? "border-rose-400 bg-rose-500/20 text-rose-800 shadow-md" : "border-white/40 bg-white/70 text-slate-800"}`}
                       >
                         {coupon}
                       </button>
@@ -403,7 +403,7 @@ export default function Home() {
               <div className="flex h-full flex-col justify-center gap-6 rounded-[1.5rem] border border-white/30 bg-white/20 p-6 shadow-lg backdrop-blur-md sm:p-8">
                 <div className="space-y-3">
                   <p className="text-sm uppercase tracking-[0.35em] text-rose-700/80">Step 6</p>
-                  <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">Click all the things that make my world brighter:</h2>
+                  <h2 className="text-2xl font-semibold text-slate-900 sm:text-4xl">Click all the things that make my world brighter:</h2>
                 </div>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {favoriteOptions.map((item) => {
@@ -413,7 +413,7 @@ export default function Home() {
                         key={item}
                         whileTap={{ scale: 0.97 }}
                         onClick={() => toggleFavorite(item)}
-                        className={`rounded-2xl border px-5 py-5 text-left text-lg font-medium transition ${selected ? "border-rose-400 bg-rose-500/20 text-rose-800 shadow-md" : "border-white/40 bg-white/70 text-slate-800"}`}
+                        className={`rounded-2xl border px-4 py-4 text-left text-base font-medium transition sm:px-5 sm:py-5 sm:text-lg ${selected ? "border-rose-400 bg-rose-500/20 text-rose-800 shadow-md" : "border-white/40 bg-white/70 text-slate-800"}`}
                       >
                         {item}
                       </motion.button>
@@ -437,7 +437,7 @@ export default function Home() {
               <div className="flex h-full flex-col justify-center gap-6 rounded-[1.5rem] border border-white/30 bg-white/20 p-6 shadow-lg backdrop-blur-md sm:p-8">
                 <div className="space-y-3">
                   <p className="text-sm uppercase tracking-[0.35em] text-rose-700/80">Step 7</p>
-                  <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">Would you love me forever and ever?</h2>
+                  <h2 className="text-2xl font-semibold text-slate-900 sm:text-4xl">Would you love me forever and ever?</h2>
                 </div>
                 <div className="relative flex min-h-[180px] flex-col justify-center gap-4 sm:flex-row">
                   <button
@@ -456,7 +456,7 @@ export default function Home() {
                     onMouseEnter={handleForeverNo}
                     onTouchStart={handleForeverNo}
                     disabled
-                    className="rounded-full border border-rose-300 bg-white/80 px-8 py-4 text-lg font-semibold text-rose-700 shadow-md disabled:cursor-not-allowed"
+                    className="rounded-full border border-rose-300 bg-white/80 px-7 py-3 text-base font-semibold text-rose-700 shadow-md disabled:cursor-not-allowed sm:px-8 sm:py-4 sm:text-lg"
                   >
                     No
                   </motion.button>
@@ -468,7 +468,7 @@ export default function Home() {
               <div className="flex h-full flex-col justify-center gap-6 rounded-[1.5rem] border border-white/30 bg-white/20 p-6 shadow-lg backdrop-blur-md sm:p-8">
                 <div className="space-y-3">
                   <p className="text-sm uppercase tracking-[0.35em] text-rose-700/80">Step 8</p>
-                  <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">Would you like a special date or surprise like this again soon?</h2>
+                  <h2 className="text-2xl font-semibold text-slate-900 sm:text-4xl">Would you like a special date or surprise like this again soon?</h2>
                 </div>
                 <div className="flex flex-col gap-4 sm:flex-row">
                   {[
@@ -481,7 +481,7 @@ export default function Home() {
                         setState((prev) => ({ ...prev, surpriseAnswer: answer }));
                         updateStep(9);
                       }}
-                      className="rounded-full bg-white/80 px-8 py-4 text-lg font-semibold text-rose-700 shadow-md"
+                      className="rounded-full bg-white/80 px-7 py-3 text-base font-semibold text-rose-700 shadow-md sm:px-8 sm:py-4 sm:text-lg"
                     >
                       {answer}
                     </button>
@@ -494,19 +494,19 @@ export default function Home() {
               <div className="flex h-full flex-col justify-center gap-6 rounded-[1.5rem] border border-white/30 bg-white/20 p-6 shadow-lg backdrop-blur-md sm:p-8">
                 <div className="space-y-3">
                   <p className="text-sm uppercase tracking-[0.35em] text-rose-700/80">Step 9</p>
-                  <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">Leave a sweet message or tell me what you think about this site!</h2>
+                  <h2 className="text-2xl font-semibold text-slate-900 sm:text-4xl">Leave a sweet message or tell me what you think about this site!</h2>
                 </div>
                 <textarea
                   value={state.comment}
                   onChange={(event) => setState((prev) => ({ ...prev, comment: event.target.value }))}
                   rows={6}
                   placeholder="Your words make my whole heart glow..."
-                  className="rounded-[1.25rem] border border-white/40 bg-white/70 p-4 text-base outline-none"
+                  className="rounded-[1.25rem] border border-white/40 bg-white/70 p-4 text-base outline-none min-h-[140px]"
                 />
                 <button
                   onClick={handleFinalSubmit}
                   disabled={isSubmitting}
-                  className="rounded-full bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-3 font-semibold text-white shadow-lg transition disabled:cursor-not-allowed disabled:opacity-70"
+                  className="rounded-full bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-3 font-semibold text-white shadow-lg transition disabled:cursor-not-allowed disabled:opacity-70 sm:px-8"
                 >
                   {isSubmitting ? "Sending your love..." : "Send my heart"}
                 </button>
@@ -514,7 +514,7 @@ export default function Home() {
             )}
 
             {state.step === 10 && (
-              <div className="relative flex min-h-[70vh] flex-col justify-center overflow-hidden rounded-[1.5rem] border border-white/30 bg-gradient-to-br from-pink-500/20 via-rose-300/20 to-fuchsia-600/20 p-6 shadow-2xl backdrop-blur-md sm:p-10">
+              <div className="relative flex min-h-[70vh] flex-col justify-center overflow-hidden rounded-[1.25rem] border border-white/30 bg-gradient-to-br from-pink-500/20 via-rose-300/20 to-fuchsia-600/20 p-4 shadow-2xl backdrop-blur-md sm:rounded-[1.5rem] sm:p-10">
                 <motion.div
                   className="absolute inset-0"
                   animate={{ scale: [1, 1.05, 1] }}
@@ -526,9 +526,9 @@ export default function Home() {
                   <motion.div animate={{ y: [0, -8, 0], rotate: [0, 8, -8, 0] }} transition={{ duration: 3.2, repeat: Infinity }} className="mx-auto text-7xl">
                     💖
                   </motion.div>
-                  <div className="rounded-[1.75rem] border border-white/40 bg-white/70 p-6 shadow-xl backdrop-blur-md">
+                  <div className="rounded-[1.25rem] border border-white/40 bg-white/70 p-4 shadow-xl backdrop-blur-md sm:rounded-[1.75rem] sm:p-6">
                     <p className="mb-4 text-sm uppercase tracking-[0.35em] text-rose-700/80">Forever in bloom</p>
-                    <blockquote className="space-y-3 text-lg leading-8 text-slate-800 sm:text-xl">
+                    <blockquote className="space-y-3 text-base leading-7 text-slate-800 sm:text-lg sm:leading-8">
                       <p>“You are the rhythm in my pulse, the fire under my skin,</p>
                       <p>The gentle spark where every wild desire begins.</p>
                       <p>In your eyes, I lose the world; in your touch, I lose control,</p>
@@ -541,7 +541,7 @@ export default function Home() {
                   </div>
                   <button
                     onClick={handleReplay}
-                    className="rounded-full bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-3 font-semibold text-white shadow-lg transition hover:scale-[1.02]"
+                    className="rounded-full bg-gradient-to-r from-pink-500 to-rose-500 px-5 py-3 font-semibold text-white shadow-lg transition hover:scale-[1.02] sm:px-6"
                   >
                     Replay Experience
                   </button>

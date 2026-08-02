@@ -1,8 +1,15 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
-const resendApiKey = process.env.RESEND_API_KEY;
-const resend = resendApiKey ? new Resend(resendApiKey) : null;
+const transporter = nodemailer.createTransport({
+  host: "smtp-relay.brevo.com",
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.BREVO_USER,
+    pass: process.env.BREVO_PASS,
+  },
+});
 
 export async function POST(request: Request) {
   try {
@@ -23,18 +30,21 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    if (!resend) {
-      return NextResponse.json({ ok: false, error: "RESEND_API_KEY is not configured" }, { status: 500 });
+    if (!process.env.BREVO_USER || !process.env.BREVO_PASS || !process.env.EMAIL_FROM) {
+      return NextResponse.json(
+        { ok: false, error: "BREVO_USER, BREVO_PASS, or EMAIL_FROM is not configured" },
+        { status: 500 },
+      );
     }
 
-    const data = await resend.emails.send({
-      from: "Girlfriend's Day <onboarding@resend.dev>",
-      to: ["peaceoloruntoba22@gmail.com"],
+    const info = await transporter.sendMail({
+      from: process.env.EMAIL_FROM,
+      to: process.env.EMAIL_FROM,
       subject: "New Girlfriend's Day submission",
       html,
     });
 
-    return NextResponse.json({ ok: true, data });
+    return NextResponse.json({ ok: true, messageId: info.messageId });
   } catch (error) {
     return NextResponse.json({ ok: false, error: String(error) }, { status: 500 });
   }
